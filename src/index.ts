@@ -38,7 +38,8 @@ export function generate(options: Options): string {
 
   if (!options.disableToc) {
     const items = definitions.map(
-      ({ name }) => `- [\`${name}\`](#${name.toLowerCase()})`
+      ({ name }) =>
+        `- <code><a href="#${name.toLowerCase()}">${name}</a></code>`
     );
 
     lines.push(items.join('\n'));
@@ -89,14 +90,18 @@ function getDefinitionMarkdown({
   def: ExportedDeclarations;
   options: Options;
 }): string {
-  const lines = [`## \`${name}\``, getTypeDefMarkdownCodeblock(options, def)];
+  const lines = [
+    `## <code>${name}</code>`,
+    getTypeDefMarkdownCodeblock(options, def),
+  ];
 
   const description = getJsDocNode(def)?.getDescription();
   if (description) lines.push(description);
 
   if (def.isKind(SyntaxKind.FunctionDeclaration)) {
     const returnType = getMarkdownTypeRef(ctx, def.getReturnTypeNode());
-    if (returnType !== '`void`') lines.push(`Returns ${returnType}.`);
+    if (returnType !== 'void')
+      lines.push(`Returns <code>${returnType}</code>.`);
 
     const params = def.getParameters();
     if (params.length > 0)
@@ -142,7 +147,7 @@ function getParamsMarkdownTable(
     const comment = tag?.getCommentText()?.replaceAll('\n', ' ') ?? '';
     const description = comment.replace(/^\s*[:-]\s*/, '');
     lines.push(
-      `| ${name} | ${type} | ${optional} | ${defaultValue} | ${description}`
+      `| ${name} | <code>${type}</code> | ${optional} | ${defaultValue} | ${description}`
     );
   });
   return lines.join('\n');
@@ -162,7 +167,9 @@ function getPropertiesMarkdownTable(
     const type = getMarkdownTypeRef(ctx, property.getTypeNode());
     const description =
       getJsDocNode(property)?.getCommentText()?.replaceAll('\n', ' ') ?? '';
-    lines.push(`| ${name} | ${type} | ${optional} | ${description}`);
+    lines.push(
+      `| ${name} | <code>${type}</code> | ${optional} | ${description}`
+    );
   });
   return lines.join('\n');
 }

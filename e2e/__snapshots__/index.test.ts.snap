@@ -1,0 +1,230 @@
+// Vitest Snapshot v1
+
+exports[`TypeScript to Markdown Generation > should convert basic-references.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#defineconfig\\">defineConfig</a></code>
+- <code><a href=\\"#userconfig\\">UserConfig</a></code>
+
+## <code>defineConfig</code>
+
+\`\`\`ts
+// Definition
+export function defineConfig(config: UserConfig): UserConfig
+\`\`\`
+
+An identity function used to ensure type safety when defining config.
+
+Returns <code><a href=\\"#userconfig\\">UserConfig</a></code>.
+
+| Parameter | Type                                              | Optional | Default | Description |
+| --------- | ------------------------------------------------- | :------: | ------- | ----------- |
+| \`config\`  | <code><a href=\\"#userconfig\\">UserConfig</a></code> |          |         |
+
+## <code>UserConfig</code>
+
+\`\`\`ts
+// Definition
+export interface UserConfig {
+  name: string
+}
+\`\`\`
+
+Configuration provided by the user
+
+| Field  | Type                | Optional | Description |
+| ------ | ------------------- | :------: | ----------- |
+| \`name\` | <code>string</code> |          |
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert constant.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#some_value\\">SOME_VALUE</a></code>
+
+## <code>SOME_VALUE</code>
+
+\`\`\`ts
+// Definition
+SOME_VALUE = 123
+\`\`\`
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert empty.ts to markdown 1`] = `
+"# API
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert function.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#somefunction\\">someFunction</a></code>
+
+## <code>someFunction</code>
+
+\`\`\`ts
+// Definition
+export async function someFunction(arg1: string, arg2?: number, arg3 = true): Promise<string>
+\`\`\`
+
+Some function docs.
+
+Returns <code>Promise&lt;string&gt;</code>.
+
+| Parameter | Type                 | Optional | Default | Description         |
+| --------- | -------------------- | :------: | ------- | ------------------- |
+| \`arg1\`    | <code>string</code>  |          |         | The first argument  |
+| \`arg2\`    | <code>number</code>  |    ✅    |         | The second argument |
+| \`arg3\`    | <code>boolean</code> |    ✅    | true    | The third argument  |
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert interface.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#test\\">Test</a></code>
+
+## <code>Test</code>
+
+\`\`\`ts
+// Definition
+export interface Test {
+  field1: boolean
+  field2?: number
+  field3: string | undefined
+}
+\`\`\`
+
+Test interface description
+
+| Field    | Type                                 | Optional | Description  |
+| -------- | ------------------------------------ | :------: | ------------ |
+| \`field1\` | <code>boolean</code>                 |          | Field 1 docs |
+| \`field2\` | <code>number</code>                  |    ✅    |
+| \`field3\` | <code>string &#124; undefined</code> |          | Field 3 docs |
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert serialize-types.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#alltypes\\">AllTypes</a></code>
+
+## <code>AllTypes</code>
+
+\`\`\`ts
+// Definition
+export interface AllTypes {
+  void: void
+  never: never
+  undefined: undefined
+  null: null
+  any: any
+  object: {
+    key: \\"value\\"
+  }
+  array: string[]
+  readonlyArray: ReadonlyArray<string>
+  union: \\"one\\" | \\"two\\"
+  intersection: \\"one\\" & \\"two\\"
+  string: string
+  stringLiteral: \\"hello\\"
+  number: number
+  numberLiteral: 44
+  boolean: boolean
+  booleanLiteral: false
+  anonymousTuple: [string, number]
+  namedTuple: [one: string, two: number]
+  customType: CustomType
+  singleTypeParam: Promise<any>
+  multipleTypeParams: Pick<
+    {
+      one: any
+      two: any
+    },
+    \\"one\\"
+  >
+}
+\`\`\`
+
+| Field                | Type                                     | Optional | Description |
+| -------------------- | ---------------------------------------- | :------: | ----------- |
+| \`void\`               | <code>void</code>                        |          |
+| \`never\`              | <code>never</code>                       |          |
+| \`undefined\`          | <code>undefined</code>                   |          |
+| \`null\`               | <code>null</code>                        |          |
+| \`any\`                | <code>any</code>                         |          |
+| \`object\`             | <code>object</code>                      |          |
+| \`array\`              | <code>Array&lt;string&gt;</code>         |          |
+| \`readonlyArray\`      | <code>ReadonlyArray&lt;string&gt;</code> |          |
+| \`union\`              | <code>\\"one\\" &#124; \\"two\\"</code>          |          |
+| \`intersection\`       | <code>never</code>                       |          |
+| \`string\`             | <code>string</code>                      |          |
+| \`stringLiteral\`      | <code>\\"hello\\"</code>                     |          |
+| \`number\`             | <code>number</code>                      |          |
+| \`numberLiteral\`      | <code>44</code>                          |          |
+| \`boolean\`            | <code>boolean</code>                     |          |
+| \`booleanLiteral\`     | <code>false</code>                       |          |
+| \`anonymousTuple\`     | <code>[string, number]</code>            |          |
+| \`namedTuple\`         | <code>[string, number]</code>            |          |
+| \`customType\`         | <code>CustomType</code>                  |          |
+| \`singleTypeParam\`    | <code>Promise&lt;any&gt;</code>          |          |
+| \`multipleTypeParams\` | <code>Pick&lt;object, \\"one\\"&gt;</code>   |          |
+"
+`;
+
+exports[`TypeScript to Markdown Generation > should convert sorting.ts to markdown 1`] = `
+"# API
+
+- <code><a href=\\"#a\\">a</a></code>
+- <code><a href=\\"#a\\">A</a></code>
+- <code><a href=\\"#b\\">b</a></code>
+- <code><a href=\\"#b\\">B</a></code>
+- <code><a href=\\"#c\\">c</a></code>
+- <code><a href=\\"#c\\">C</a></code>
+
+## <code>a</code>
+
+\`\`\`ts
+// Definition
+a = 0
+\`\`\`
+
+## <code>A</code>
+
+\`\`\`ts
+// Definition
+A = 3
+\`\`\`
+
+## <code>b</code>
+
+\`\`\`ts
+// Definition
+b = -1
+\`\`\`
+
+## <code>B</code>
+
+\`\`\`ts
+// Definition
+B = 2
+\`\`\`
+
+## <code>c</code>
+
+\`\`\`ts
+// Definition
+c = -1
+\`\`\`
+
+## <code>C</code>
+
+\`\`\`ts
+// Definition
+C = 1
+\`\`\`
+"
+`;
