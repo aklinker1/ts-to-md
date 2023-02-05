@@ -27,6 +27,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky install",
+    "prepublish": "pnpm build",
     "gen:docs": "pnpm build && node lib/cli.js src/index.ts API.md"
   },
   "devDependencies": {
