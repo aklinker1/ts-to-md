@@ -1,5 +1,7 @@
 # API
 
+- [`Test`](#test)
+
 ## `Test`
 
 ```ts

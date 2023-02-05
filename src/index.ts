@@ -34,11 +34,20 @@ export function generate(options: Options): string {
     }, {}),
   };
 
+  const lines = ['# API'];
+
+  if (!options.disableToc) {
+    const items = definitions.map(
+      ({ name }) => `- [\`${name}\`](#${name.toLowerCase()})`
+    );
+
+    lines.push(items.join('\n'));
+  }
+
   const blocks = definitions.map(({ name, def }) =>
     getDefinitionMarkdown({ ctx, name, def, options })
   );
 
-  const lines = ['# API'];
   lines.push(...blocks);
 
   let markdown = lines.join('\n\n');

@@ -1,5 +1,7 @@
 # API
 
+- [`someFunction`](#somefunction)
+
 ## `someFunction`
 
 ```ts

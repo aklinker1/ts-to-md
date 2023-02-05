@@ -1,5 +1,7 @@
 # API
 
+- [`AllTypes`](#alltypes)
+
 ## `AllTypes`
 
 ```ts

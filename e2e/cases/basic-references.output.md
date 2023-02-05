@@ -1,5 +1,8 @@
 # API
 
+- [`defineConfig`](#defineconfig)
+- [`UserConfig`](#userconfig)
+
 ## `defineConfig`
 
 ```ts

@@ -1,5 +1,8 @@
 # API
 
+- [`generate`](#generate)
+- [`Options`](#options)
+
 ## `generate`
 
 ```ts
@@ -27,6 +30,7 @@ export interface Options {
   definitionTemplate?: string;
   skipTypeCheck?: boolean;
   prettier?: false | prettier.Config;
+  disableToc?: boolean;
 }
 ```
 
@@ -39,3 +43,4 @@ Options for customizing the generated markdown.
 | `definitionTemplate` | `string`                |    ✅    | A template for displaying the type definition. To hide the definition, set to an empty string.             |
 | `skipTypeCheck`      | `boolean`               |    ✅    | When true, don't throw an error when there is a type erorr.                                                |
 | `prettier`           | `false` &#124; `object` |    ✅    | Config for prettier, or `false` to disable formatting. Default to the config found in your `process.cwd()` |
+| `disableToc`         | `boolean`               |    ✅    | Set to true to prevent a table of contents from being generated.                                           |

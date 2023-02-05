@@ -27,6 +27,10 @@ export interface Options {
    * `process.cwd()`
    */
   prettier?: false | prettier.Config;
+  /**
+   * Set to true to prevent a table of contents from being generated.
+   */
+  disableToc?: boolean;
 }
 
 export interface Ctx {
