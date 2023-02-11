@@ -1,7 +1,7 @@
 {
   "name": "ts-to-md",
   "description": "Generate markdown docs from a typescript file",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Aaron Klinker",
   "repository": "https://github.com/aklinker1/ts-to-md",
