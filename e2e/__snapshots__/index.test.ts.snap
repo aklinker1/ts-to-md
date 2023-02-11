@@ -228,3 +228,25 @@ C = 1
 \`\`\`
 "
 `;
+
+exports[`TypeScript to Markdown Generation > should convert top-level-comment.ts to markdown 1`] = `
+"# API
+
+Hello world.
+
+\`\`\`ts
+import { example } from \\"./top-level-comment.ts\\"
+\`\`\`
+
+- <code><a href=\\"#example\\">example</a></code>
+
+## <code>example</code>
+
+\`\`\`ts
+// Definition
+export function example(): void
+\`\`\`
+
+function docs
+"
+`;

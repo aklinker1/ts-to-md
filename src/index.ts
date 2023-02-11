@@ -1,3 +1,10 @@
+/**
+ * NodeJS API.
+ *
+ * ```ts
+ * import { generate } from 'ts-to-md';
+ * ```
+ */
 import {
   ExportedDeclarations,
   FunctionDeclaration,
@@ -13,6 +20,7 @@ import 'prettier/parser-markdown.js';
 import { getPublicDefinitions } from './utils/getPublicDefinitions';
 import { Ctx, Options } from './types';
 import { getMarkdownTypeRef } from './utils/getMarkdownTypeRef';
+import { extractJsDoc } from './utils/extractJsDoc';
 
 export { Options };
 
@@ -35,6 +43,9 @@ export function generate(options: Options): string {
   };
 
   const lines = ['# API'];
+
+  const leadingComment = extractJsDoc(file.print());
+  if (leadingComment) lines.push(leadingComment);
 
   if (!options.disableToc) {
     const items = definitions.map(
@@ -188,6 +199,8 @@ function getTypeDefMarkdownCodeblock(
 }
 
 function getJsDocNode(def: Node): JSDoc | undefined {
-  if (Node.isJSDocable(def)) return def.getJsDocs()[0];
-  return undefined;
+  if (!Node.isJSDocable(def)) return;
+
+  const docs = def.getJsDocs();
+  return docs[docs.length - 1];
 }

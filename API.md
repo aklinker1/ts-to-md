@@ -1,9 +1,15 @@
 # API
 
-- [`generate`](#generate)
-- [`Options`](#options)
+NodeJS API.
 
-## `generate`
+```ts
+import { generate } from 'ts-to-md';
+```
+
+- <code><a href="#generate">generate</a></code>
+- <code><a href="#options">Options</a></code>
+
+## <code>generate</code>
 
 ```ts
 // Definition
@@ -14,13 +20,13 @@ Generate and return the documentation for a TS file as a string.
 
 This method does not write the config to a file, you'll need to do that yourself.
 
-Returns string.
+Returns <code>string</code>.
 
 | Parameter | Type                                        | Optional | Default | Description |
 | --------- | ------------------------------------------- | :------: | ------- | ----------- |
 | `options` | <code><a href="#options">Options</a></code> |          |         |
 
-## `Options`
+## <code>Options</code>
 
 ```ts
 // Definition
